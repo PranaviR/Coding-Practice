@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+class Solution
+{
+  Node head;
+  Node current;
+  static class Node
+  {
+    int data;
+    Node next;
+    Node(int d) //constructor
+    {
+      data=d;
+      next=null;
+    }
+  }
+  public void printList()
+    {
+        Node n=head;
+        while (n != null)
+        {   
+            System.out.print(n.data+" ");
+            n = n.next;
+        }
+    }
+  public static void main(String[] args)   
+  { 
+    Solution list=new Solution();
+    System.out.println("Enter a new object");
+    Scanner input=new Scanner(System.in);
+    int data=input.nextInt();
+    list.head=new Node(data);
+    list.current=list.head;
+    //creating linkedlist
+    for(int i=1;i<=2;i++)
+    {
+      System.out.println("Enter a new object");
+      int data1=input.nextInt();
+      //creating a node
+      Node newNode=new Node(data1);
+      list.current.next=newNode;
+      list.current=newNode;
+    }
+    list.printList();
+  }                    
+}
